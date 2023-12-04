@@ -8,10 +8,15 @@ import lombok.Data;
 @Table(name = "Client")
 public class Client {
 
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
   @Column
   private String name;
+
+  public void setName(String name){
+    this.name=name;
+  }
 }

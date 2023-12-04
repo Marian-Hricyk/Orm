@@ -13,16 +13,6 @@ public class PropertyReader {
             .map(properties -> properties.getProperty("hibernate.connection.url")).orElse(null);
   }
 
-  public static String getUserForPostgres() {
-    return Objects.requireNonNull(getProperties())
-            .map(properties -> properties.getProperty("hibernate.connection.username")).orElse(null);
-  }
-
-  public static String getPasswordForPostgres() {
-    return Objects.requireNonNull(getProperties())
-            .map(properties -> properties.getProperty("hibernate.connection.password")).orElse(null);
-  }
-
 
   private static Optional<Properties> getProperties() {
     try (InputStream input = PropertyReader.class.getClassLoader()
