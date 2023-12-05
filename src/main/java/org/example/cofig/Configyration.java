@@ -6,10 +6,6 @@ import org.flywaydb.core.Flyway;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 
 public class Configyration {
   private static final Configyration INSTANCE = new Configyration();
@@ -21,7 +17,8 @@ public class Configyration {
             .addAnnotatedClass(Client.class)
             .buildSessionFactory();
 
-    flyli(PropertyReader.getConnectionUrlForPostgres());
+
+    flyli(PropertyReader.getConnectionUrlForH2());
 
   }
 

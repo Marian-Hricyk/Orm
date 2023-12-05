@@ -8,10 +8,11 @@ import java.util.Properties;
 
 public class PropertyReader {
 
-  public static String getConnectionUrlForPostgres() {
+  public static String getConnectionUrlForH2() {
     return Objects.requireNonNull(getProperties())
             .map(properties -> properties.getProperty("hibernate.connection.url")).orElse(null);
   }
+
 
 
   private static Optional<Properties> getProperties() {
