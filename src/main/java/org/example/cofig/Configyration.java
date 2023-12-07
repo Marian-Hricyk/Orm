@@ -2,6 +2,7 @@ package org.example.cofig;
 
 import org.example.enitty.Client;
 import org.example.enitty.Planet;
+import org.example.enitty.Ticket;
 import org.flywaydb.core.Flyway;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,6 +16,7 @@ public class Configyration {
     this.sessionFactory = new Configuration()
             .addAnnotatedClass(Planet.class)
             .addAnnotatedClass(Client.class)
+            .addAnnotatedClass(Ticket.class)
             .buildSessionFactory();
 
 

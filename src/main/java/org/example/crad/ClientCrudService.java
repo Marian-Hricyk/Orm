@@ -21,10 +21,10 @@ public class ClientCrudService {
   }
 
   public void deleteClient(Client client) {
-    TicetCrudService ticetCrudService=new TicetCrudService();
-    ArrayList<Long> idTiket=new ArrayList<>();
-    idTiket=ticetCrudService.idTicetCient(client.getId());
-    for (long ids:idTiket) {
+    TicetCrudService ticetCrudService = new TicetCrudService();
+    ArrayList<Long> idTiket = new ArrayList<>();
+    idTiket = ticetCrudService.idTicetCient(client.getId());
+    for (long ids : idTiket) {
       ticetCrudService.DeliteTicet(ticetCrudService.FindById(ids));
     }
     clientDao.delete(client);

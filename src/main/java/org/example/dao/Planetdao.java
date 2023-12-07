@@ -1,7 +1,6 @@
 package org.example.dao;
 
 import org.example.cofig.Configyration;
-import org.example.enitty.Client;
 import org.example.enitty.Planet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,7 +12,7 @@ public class Planetdao {
   public void save(Planet planet) {
     try (Session session = sessionFactory.openSession()) {
       Transaction transaction = session.beginTransaction();
-      session.save(planet);
+      session.persist(planet);
       transaction.commit();
     }
   }

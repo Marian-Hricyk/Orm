@@ -21,11 +21,11 @@ public class PlanetCrudService {
   }
 
   public void deletePlanet(Planet planet) {
-TicetCrudService ticetCrudService=new TicetCrudService();
-    ArrayList<Long> idTiket=new ArrayList<>();
-    idTiket=ticetCrudService.idTicetPlanet(planet.getId());
-    for (long ids:idTiket) {
-    ticetCrudService.DeliteTicet(ticetCrudService.FindById(ids));
+    TicetCrudService ticetCrudService = new TicetCrudService();
+    ArrayList<Long> idTiket = new ArrayList<>();
+    idTiket = ticetCrudService.idTicetPlanet(planet.getId());
+    for (long ids : idTiket) {
+      ticetCrudService.DeliteTicet(ticetCrudService.FindById(ids));
     }
 
     planetdao.delete(planet);

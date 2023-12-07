@@ -2,7 +2,7 @@ package org.example.enitty;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.BatchSize;
+
 
 @Data
 @Entity

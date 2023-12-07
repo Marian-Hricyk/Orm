@@ -2,7 +2,7 @@ package org.example.enitty;
 
 import jakarta.persistence.*;
 
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Ticket")
@@ -12,11 +12,10 @@ public class Ticket {
   private long id;
 
   @Column(name = "created_at")
-  private Timestamp created_at;
+  private LocalDateTime created_at;
 
-  @ManyToOne
-  @JoinColumn(name = "client_id")
-  private Client client_id;
+  @Column(name = "client_id")
+  private Long client_id;
 
   @ManyToOne
   @JoinColumn(name = "from_planet_id")

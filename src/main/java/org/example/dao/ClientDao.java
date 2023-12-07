@@ -9,14 +9,13 @@ import org.hibernate.Transaction;
 public class ClientDao {
   private SessionFactory sessionFactory = Configyration.getInstance().getSessionFactory();
 
-  public void save(Client client){
-    try(Session session=sessionFactory.openSession()){
-      Transaction transaction=session.beginTransaction();
+  public void save(Client client) {
+    try (Session session = sessionFactory.openSession()) {
+      Transaction transaction = session.beginTransaction();
       session.save(client);
       transaction.commit();
     }
   }
-
 
 
   public Client findById(Long id) {

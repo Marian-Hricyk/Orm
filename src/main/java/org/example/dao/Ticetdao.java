@@ -1,7 +1,6 @@
 package org.example.dao;
 
 import org.example.cofig.Configyration;
-import org.example.enitty.Planet;
 import org.example.enitty.Ticket;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,10 +24,9 @@ public class Ticetdao {
     ArrayList<Long> ticketIds = new ArrayList<>();
 
     try (Session session = sessionFactory.openSession()) {
-      Query<Long> query = session.createQuery(
-              "SELECT t.id FROM Ticket t " +
-                      "WHERE t.fromPlanet.id = :planetId OR t.toPlanet.id = :planetId", Long.class);
+      Query<Long> query = session.createQuery("SELECT t.id FROM Ticket t " + "WHERE t.from_planet_id.id = :planetId OR t.to_planet_id.id = :planetId", Long.class);
       query.setParameter("planetId", id);
+
 
       ticketIds.addAll(query.getResultList());
     }
@@ -36,13 +34,12 @@ public class Ticetdao {
     return ticketIds;
   }
 
+
   public ArrayList<Long> idTicketWithClientId(long id) {
     ArrayList<Long> ticketIds = new ArrayList<>();
 
     try (Session session = sessionFactory.openSession()) {
-      Query<Long> query = session.createQuery(
-              "SELECT t.id FROM Ticket t " +
-                      "WHERE t.client.id = :clientId", Long.class);
+      Query<Long> query = session.createQuery("SELECT t.id FROM  Ticket t " + "WHERE t.client_id = :clientId", Long.class);
       query.setParameter("clientId", id);
 
       ticketIds.addAll(query.getResultList());
