@@ -10,31 +10,32 @@ import org.example.enitty.Planet;
 public class Main {
   public static void main(String[] args) {
     Configyration.getInstance();
-    PlanetCrudService planetCrudService=new PlanetCrudService();
-    ClientCrudService clientCrudService=new ClientCrudService();
+    PlanetCrudService planetCrudService = new PlanetCrudService();
+    ClientCrudService clientCrudService = new ClientCrudService();
 
-    Planet newPlanet=new Planet();
-    newPlanet.setName("CAT");
+    Planet newPlanet = new Planet();
+    newPlanet.setId("CAT");
+    newPlanet.setName("cat");
     planetCrudService.savePlanet(newPlanet);
 
-    Planet planet=planetCrudService.findPlanetById(1L);
-    System.out.println("Found Planet: " + planet.getName());
+    Planet planet = planetCrudService.findPlanetById("MARS");
 
-planet.setName("Man");
+
+    planet.setName("Mars");
     planetCrudService.updatePlanet(planet);
 
     planetCrudService.deletePlanet(planet);
 
 
-    Client newCliant =new Client();
+    Client newCliant = new Client();
     newCliant.setName("jis");
     clientCrudService.saveClient(newCliant);
 
-    Client client=clientCrudService.findClientById(1L);
+    Client client = clientCrudService.findClientById(1L);
     System.out.println("Found Cliant: " + client.getName());
 
     client.setName("Ostap");
-clientCrudService.updateClient(client);
+    clientCrudService.updateClient(client);
 
     clientCrudService.deleteClient(client);
 

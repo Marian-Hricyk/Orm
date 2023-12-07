@@ -10,17 +10,16 @@ import org.hibernate.Transaction;
 public class Planetdao {
   private SessionFactory sessionFactory = Configyration.getInstance().getSessionFactory();
 
-  public void save(Planet planet){
-    try(Session session=sessionFactory.openSession()){
-      Transaction transaction=session.beginTransaction();
+  public void save(Planet planet) {
+    try (Session session = sessionFactory.openSession()) {
+      Transaction transaction = session.beginTransaction();
       session.save(planet);
       transaction.commit();
     }
   }
 
 
-
-  public Planet findById(Long id) {
+  public Planet findById(String id) {
     try (Session session = sessionFactory.openSession()) {
       return session.get(Planet.class, id);
     }

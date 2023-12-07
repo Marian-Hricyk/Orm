@@ -10,7 +10,7 @@ public class PlanetCrudService {
     planetdao.save(planet);
   }
 
-  public Planet findPlanetById(Long id) {
+  public Planet findPlanetById(String id) {
     return planetdao.findById(id);
   }
 

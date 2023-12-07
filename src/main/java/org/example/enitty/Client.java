@@ -16,8 +16,5 @@ public class Client {
   @Column
   private String name;
 
-//  public void setName(String name){
-//
-//    this.name=name;
-//  }
+
 }

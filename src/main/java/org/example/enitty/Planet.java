@@ -6,10 +6,9 @@ import org.hibernate.annotations.BatchSize;
 
 @Data
 @Entity
-@Table(name="Planet")
+@Table(name = "Planet")
 public class Planet {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private String id;
 
   @Column

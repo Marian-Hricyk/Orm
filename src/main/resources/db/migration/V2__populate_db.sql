@@ -1,4 +1,4 @@
--- INSERT CLIENTS
+
 INSERT INTO Client (name) VALUES
   ('John Doe'),
   ('Alice Smith'),
@@ -11,7 +11,6 @@ INSERT INTO Client (name) VALUES
   ('William Turner'),
   ('Emma Taylor');
 
--- INSERT PLANETS
 INSERT INTO Planet (id, name) VALUES
   ('MARS', 'Mars'),
   ('VENUS', 'Venus'),
@@ -19,7 +18,6 @@ INSERT INTO Planet (id, name) VALUES
   ('JUPITER', 'Jupiter'),
   ('SATURN', 'Saturn');
 
--- INSERT TICKETS
 INSERT INTO Ticket (client_id, from_planet_id, to_planet_id) VALUES
   (1, 'MARS', 'VENUS'),
   (2, 'EARTH', 'MARS'),
