@@ -3,6 +3,8 @@ package org.example.crad;
 import org.example.dao.ClientDao;
 import org.example.enitty.Client;
 
+import java.util.ArrayList;
+
 public class ClientCrudService {
   private ClientDao clientDao = new ClientDao();
 
@@ -19,6 +21,12 @@ public class ClientCrudService {
   }
 
   public void deleteClient(Client client) {
+    TicetCrudService ticetCrudService=new TicetCrudService();
+    ArrayList<Long> idTiket=new ArrayList<>();
+    idTiket=ticetCrudService.idTicetCient(client.getId());
+    for (long ids:idTiket) {
+      ticetCrudService.DeliteTicet(ticetCrudService.FindById(ids));
+    }
     clientDao.delete(client);
   }
 }
