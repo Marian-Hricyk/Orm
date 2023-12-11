@@ -12,6 +12,28 @@ import java.util.ArrayList;
 public class Ticetdao {
   private SessionFactory sessionFactory = Configyration.getInstance().getSessionFactory();
 
+  public void update(Ticket ticket) {
+    try (Session session = sessionFactory.openSession()) {
+      Transaction tx = session.beginTransaction();
+      session.update(ticket);
+      tx.commit();
+    }
+  }
+
+  public void save(Ticket ticket) {
+    if ((ticket.getClient() != null) && (ticket.getToPlanet() != null) && (ticket.getFromPlanet() != null)) {
+      try (Session session = sessionFactory.openSession()) {
+        Transaction tx = session.beginTransaction();
+        session.save(ticket);
+        tx.commit();
+      }
+    } else {
+      System.out.println("incorrect data");
+
+    }
+  }
+
+
   public void delete(Ticket ticket) {
     try (Session session = sessionFactory.openSession()) {
       Transaction tx = session.beginTransaction();

@@ -8,6 +8,14 @@ import java.util.ArrayList;
 public class TicetCrudService {
   Ticetdao ticetdao = new Ticetdao();
 
+  public void updateTicet(Ticket ticket) {
+    ticetdao.update(ticket);
+  }
+
+  public void saveTicet(Ticket ticket) {
+    ticetdao.save(ticket);
+  }
+
   public Ticket FindById(long id) {
     return ticetdao.findById(id);
   }
